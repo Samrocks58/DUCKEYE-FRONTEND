@@ -1,22 +1,14 @@
 import React from "react";
 import "./styles.css"; // Import the CSS file
 import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
     <div>
-      <img src="DUCKEYE LOGO.png" style = {{float: "left", width: "128px", height: "92px", padding: "0px", paddingLeft:"10px",paddingTop:"5px"}} alt = "DuckEye LOGO"></img>
-      {/* Header Section */}
-      <header className="header">
-      <div>
-      {/* Header Section */}
-      <header className="header">
-        <div className="logo">DUCKEYE</div>
-      </header>
-    </div>
-      </header>
+      <Header></Header>
 
       {/* Hero Section */}
       <section className="hero">
