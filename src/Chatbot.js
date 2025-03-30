@@ -23,10 +23,12 @@ const Chatbot = (props) => {
   };
 
   const generateBotResponse = async (userText) => {
+    console.log(userText);
       try {
         const response = await axios.post(
-          "http://localhost:8000/gemini/response",
-          { userText },
+          // "http://localhost:8000/gemini/response",
+          `http://localhost:8000/gemini/response?input=${encodeURIComponent(userText)}`, // ✅ Fix: Use query parameter
+          {},
           {
             headers: {
               "Content-Type": "application/json",

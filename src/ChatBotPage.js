@@ -22,18 +22,19 @@ const ChatBotPage = () => {
 
     console.log(jobs);
 
-    const chosenJobs = jobs.filter((job) => selectedJobs.includes(job.id))
-
-    console.log(chosenJobs)
-
     // const chosenJobs = jobs.filter((job) => selectedJobs.includes(job.id))
-    // .map(({ positionName, postedAt, company, location, description }) => ({
-    // positionName,
-    // postedAt: postedAt || "", // Ensure string format
-    // company: company || "",
-    // location: location || "",
-    // description: description || "",
-    // }));
+
+    
+    const chosenJobs = jobs.filter((job) => selectedJobs.includes(job.id))
+    .map(({ positionName, postedAt, company, location, description }) => ({
+        positionName,
+        postedAt: postedAt || "", // Ensure string format
+        company: company || "",
+        location: location || "",
+        description: description || "",
+    }));
+    
+    console.log(chosenJobs);
 
   const [greeting, setGreeting] = useState("");
   const [loading, setLoading] = useState(true);
@@ -58,7 +59,7 @@ const ChatBotPage = () => {
             timeout: 10000,
           }
         );
-        setGreeting(response.data); // ✅ Fix: Store response correctly
+        setGreeting(response.data.content || ""); // ✅ Fix: Store response correctly
         setLoading(false);
       } catch (err) {
         console.error("API Request Error:", err);
