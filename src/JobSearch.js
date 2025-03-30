@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 const JobSearch = () => {
+  const navigate = useNavigate();
+
   const [position, setPosition] = useState("");
   const [location, setLocation] = useState("");
 
   const handleSubmit = () => {
-    alert(`Searching for ${position} jobs in ${location}`);
+    navigate("/results", { state: { position, location } });
   };
 
   return (
