@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const Chatbot = () => {
-  const [messages, setMessages] = useState([{ text: "Hello! Ask me about your career.", sender: "bot" }]);
+const Chatbot = (props) => {
+  const [messages, setMessages] = useState([{ text: props.greeting, sender: "bot" }]);
   const [input, setInput] = useState("");
 
   const handleSendMessage = () => {
@@ -16,19 +17,29 @@ const Chatbot = () => {
         sender: "bot",
       };
       setMessages((prevMessages) => [...prevMessages, botResponse]);
-    }, 1000);
+    }, 10000);
 
     setInput("");
   };
 
-  const generateBotResponse = (userText) => {
-    const responses = {
-      "how to get a job": "Apply to positions relevant to your skills and build a strong LinkedIn profile.",
-      "resume tips": "Keep it concise, highlight your achievements, and tailor it to each job application.",
-      "interview advice": "Practice common questions, research the company, and stay confident!",
-    };
-    
-    return responses[userText.toLowerCase()] || "I'm not sure. Could you ask something else?";
+  const generateBotResponse = async (userText) => {
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/gemini/response",
+          { userText },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            timeout: 10000,
+          }
+        );
+
+        return response.data;
+
+      } catch (err) {
+        console.error("API Request Error:", err);
+      }
   };
 
   const handleKeyPress = (e) => {

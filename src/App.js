@@ -5,6 +5,7 @@ import About from "./About";
 import Contact from "./Contact";
 import MainPage from "./MainPage";
 import JobResultsTable from "./JobResultsTable";
+import ChatBotPage from "./ChatBotPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/start" element={<MainPage />} />
         <Route path="/results" element={<JobResultsTable />} />
+        <Route path="/chat" element={<ChatBotPage />} />
       </Routes>
     </Router>
   );

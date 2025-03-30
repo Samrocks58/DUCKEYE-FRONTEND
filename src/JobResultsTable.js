@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./JobResultsTable.css";
 import loadingGif from "./dancing.gif";
 
 const JobResultsTable = () => {
+  const navigate = useNavigate();
   const loc = useLocation();
   const { position, location } = loc.state || {}; // Extract job search parameters
 
@@ -14,7 +15,7 @@ const JobResultsTable = () => {
   const [selectedJobs, setSelectedJobs] = useState([]); // ✅ Stores selected jobs
 
   const handleNext = () => {
-    return true;
+    navigate("/chat", { state: { jobs, selectedJobs } });
   }
 
   useEffect(() => {
@@ -138,14 +139,6 @@ const JobResultsTable = () => {
               <p>No jobs selected.</p>
             )}
           </div>
-
-          {/* {selectedJobs.length > 0 && (
-            <div className="next-button-container" style = {{float: "right", paddingBottom:"25px"}}>
-              <button className="next-button" onClick={() => handleNext()}>
-                Next →
-              </button>
-            </div>
-            )} */}
         </>
       )}
     </div>
