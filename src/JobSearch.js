@@ -18,7 +18,7 @@ const JobSearch = () => {
     if (autocompleteContainerRef.current && !autocompleteRef.current) {
       autocompleteRef.current = new GeocoderAutocomplete(
         autocompleteContainerRef.current,
-        '39743f32eb6c434caca3ca3937ff8516',
+        '',
         { placeholder: 'Enter Location', 
           filterByType: ['city', 'state', 'county'],
         }
