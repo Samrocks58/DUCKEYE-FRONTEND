@@ -1,0 +1,37 @@
+.table-container {
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .job-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .job-table th,
+  .job-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  .job-table th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+  }
+  
+  .job-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .job-table tr:hover {
+    background-color: #ddd;
+    cursor: pointer;
+  }

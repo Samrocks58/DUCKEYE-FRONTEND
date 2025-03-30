@@ -48,7 +48,6 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     height: "40vh",
-    // backgroundColor: "#f4f4f4",
   },
   title: {
     fontSize: "24px",
