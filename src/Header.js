@@ -5,7 +5,7 @@ const Header = () => {
   const navigate = useNavigate();
   
   return (
-    <div style={{ paddingBottom: "95px" }}>
+    <div style={{ paddingBottom: "0px" }}>
       <header style={styles.header}>
         {/* Logo on the left */}
         <img
