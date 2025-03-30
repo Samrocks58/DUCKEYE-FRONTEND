@@ -1,0 +1,16 @@
+.geoapify-autocomplete-input {
+    width: 300px;  /* Set your desired width */
+    height: 19px;  /* Set your desired height */
+    font-size: 16px;;
+    padding: 10px;;
+  }
+  
+  /* Optionally style the suggestions dropdown */
+  .geoapify-autocomplete-items {
+    width: 300px;
+    height:auto;
+  }
+
+  .geoapify-autocomplete-item{
+    height:50px;
+  }

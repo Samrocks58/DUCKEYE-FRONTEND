@@ -1,12 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { GeocoderAutocomplete } from '@geoapify/geocoder-autocomplete';
+import './geocoder-styles.css';
 
 const JobSearch = () => {
   const [position, setPosition] = useState("");
   const [location, setLocation] = useState("");
+  const [locationData, setLocationData] = useState(null);
+  const autocompleteContainerRef = useRef(null);
+  const autocompleteRef = useRef(null);
 
   const handleSubmit = () => {
+    console.log("Submitted:", { position, location });
     alert(`Searching for ${position} jobs in ${location}`);
   };
+
+  useEffect(() => {
+    if (autocompleteContainerRef.current && !autocompleteRef.current) {
+      autocompleteRef.current = new GeocoderAutocomplete(
+        autocompleteContainerRef.current,
+        '39743f32eb6c434caca3ca3937ff8516',
+        { placeholder: 'Enter Location', 
+          filterByType: ['city', 'state', 'county'],
+        }
+      );
+
+    autocompleteRef.current.on('select', (locationResult) => {
+      if (locationResult && locationResult.properties) {
+        const cityState = locationResult.properties.city || '';
+        const state = locationResult.properties.state || '';
+        const country = locationResult.properties.country || '';
+        
+        // Create a cleaner format for display
+        const formattedLocation = [cityState, state, country].filter(Boolean).join(', ');
+        
+        setLocation(formattedLocation);
+        setLocationData(locationResult);
+        
+        console.log("Selected location:", locationResult);
+      }
+  });
+}
+}, []);
 
   return (
     <div style={styles.container}>
@@ -22,13 +56,7 @@ const JobSearch = () => {
       />
 
       {/* Location Input */}
-      <input
-        type="text"
-        placeholder="Enter Location"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-        style={styles.input}
-      />
+        <div ref={autocompleteContainerRef} style={styles.autocompleteContainer}></div>
 
       {/* Submit Button */}
       <div style={styles.buttonContainer}>
@@ -47,7 +75,7 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    height: "40vh",
+    height: "auto",
   },
   title: {
     fontSize: "24px",
@@ -66,11 +94,20 @@ const styles = {
     justifyContent: "flex-end",
     width: "300px",
   },
+  autocompleteContainer: {
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+    fontSize: "16px",
+},
+  autocompleteInput:{
+    height: "50px",
+  },
   button: {
     padding: "10px 20px",
     backgroundColor: "#007BFF",
     color: "white",
     border: "none",
+    marginRight:"100px",
     borderRadius: "5px",
     fontSize: "16px",
     cursor: "pointer",

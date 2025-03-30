@@ -45,36 +45,35 @@ const Home = () => {
         <div className="timeline-dot"></div>
         <div className="timeline-item" style={{left:"-55%"}}>
         <div className="timeline-content">
-          <h4>Problem</h4>
-          <p>Identify and understand your specific challenges</p>
+          <h4>Got a career related question?</h4>
         </div>
       </div>
         <div className="timeline-dot"></div>
         <div className="timeline-item" style={{right:"-47%"}}>
         <div className="timeline-content">
           <h4>Step 1</h4>
-          <p>Collect and analyze relevant data</p>
+          <p>Ask your question to our chatbot and recieve relevant career related advice! </p>
         </div>
       </div>
         <div className="timeline-dot"></div>
         <div className="timeline-item" style={{left:"-55%"}}>
         <div className="timeline-content">
           <h4>Step 2</h4>
-          <p>Generate insights and potential solutions</p>
+          <p>Enter any other required information that the chatbot needs.</p>
         </div>
       </div>
         <div className="timeline-dot"></div>
         <div className="timeline-item" style={{right:"-47%"}}>
         <div className="timeline-content">
           <h4>Step 3</h4>
-          <p>Develop implementation strategies</p>
+          <p>Recieve career relevant related advice answering your questions!</p>
         </div>
       </div>
         <div className="timeline-dot"></div>
         <div className="timeline-item" style={{left:"-4%", marginTop:"80px"}}>
         <div className="timeline-content">
           <h4>Solution</h4>
-          <p>Present actionable recommendations</p>
+          <p>Using your new advice and insight, take action!</p>
         </div>
       </div>
     </div>
