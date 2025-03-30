@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router";
 import React, { useEffect, useState, useRef } from "react";
 import { GeocoderAutocomplete } from '@geoapify/geocoder-autocomplete';
 import './geocoder-styles.css';
 
 const JobSearch = () => {
+  const navigate = useNavigate();
+
   const [position, setPosition] = useState("");
   const [location, setLocation] = useState("");
   const [setLocationData] = useState(null);
@@ -10,8 +13,7 @@ const JobSearch = () => {
   const autocompleteRef = useRef(null);
 
   const handleSubmit = () => {
-    console.log("Submitted:", { position, location });
-    alert(`Searching for ${position} jobs in ${location}`);
+    navigate("/results", { state: { position, location } });
   };
 
   useEffect(() => {
