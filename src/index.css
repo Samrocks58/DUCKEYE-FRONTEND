@@ -11,3 +11,144 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Vertical Timeline Styles */
+.process-container {
+  padding: 40px 20px;
+}
+
+.process-box {
+  max-width: auto;
+  margin: 0 auto;
+}
+
+.process-box h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.vertical-timeline {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Vertical line */
+.vertical-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 0px;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background-color: #ddd;
+  z-index: 0;
+  animation: lineDrawToDown 5s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 50px;
+  z-index: 1;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #4a90e2;
+  border: 4px solid white;
+  box-shadow: 0 0 0 3px #4a90e2;
+  transform: translateX(-10px);
+  z-index: 2;
+}
+
+.timeline-content {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #4a90e2;
+  font-size: 18px;
+}
+
+.timeline-content p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 480px) {
+  .vertical-timeline::before {
+    left: 15px;
+  }
+  
+  .timeline-item {
+    padding-left: 40px;
+  }
+  
+  .timeline-dot {
+    width: 20px;
+    height: 20px;
+    transform: translateX(-8px);
+  }
+  
+  .timeline-content {
+    padding: 15px;
+  }
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes lineDrawToDown {
+  0% {
+      height: 0;
+  }
+  100% {
+      height: 650px;
+  }
+}
+
+@keyframes slide-in-from-right {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

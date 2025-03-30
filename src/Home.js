@@ -6,6 +6,25 @@ import Header from "./Header";
 const Home = () => {
   const navigate = useNavigate();
 
+  function FadeInSection(props) {
+    const [isVisible, setVisible] = React.useState(false);
+    const domRef = React.useRef();
+    React.useEffect(() => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => setVisible(entry.isIntersecting));
+      });
+      observer.observe(domRef.current);
+    }, []);
+    return (
+      <div
+        className={`fade-in-section ${isVisible ? 'is-visible' : ''}`}
+        ref={domRef}
+      >
+        {props.children}
+      </div>
+    );
+  }
+
   return (
     <div>
       <Header></Header>
@@ -16,19 +35,52 @@ const Home = () => {
         <p>Get insight into your future work-related questions, concerns, and more.</p>
       </section>
 
-      {/* Process Diagram */}
-      <section className="process-container">
-        <div className="process-box">
-          <h3>Our Process</h3>
-          <div className="process-tree">
-            <div><span>Problem</span></div>
-            <div><span>Step 1</span></div>
-            <div><span>Step 2</span></div>
-            <div><span>Step 3</span></div>
-            <div>Solution</div>
-          </div>
+
+{/* Process Diagram - Vertical Timeline */}
+<FadeInSection>
+<section className="process-container">
+  <div className="process-box">
+    <h3>Our Process</h3>
+    <div className="vertical-timeline">
+        <div className="timeline-dot"></div>
+        <div className="timeline-item" style={{left:"-55%"}}>
+        <div className="timeline-content">
+          <h4>Problem</h4>
+          <p>Identify and understand your specific challenges</p>
         </div>
-      </section>
+      </div>
+        <div className="timeline-dot"></div>
+        <div className="timeline-item" style={{right:"-47%"}}>
+        <div className="timeline-content">
+          <h4>Step 1</h4>
+          <p>Collect and analyze relevant data</p>
+        </div>
+      </div>
+        <div className="timeline-dot"></div>
+        <div className="timeline-item" style={{left:"-55%"}}>
+        <div className="timeline-content">
+          <h4>Step 2</h4>
+          <p>Generate insights and potential solutions</p>
+        </div>
+      </div>
+        <div className="timeline-dot"></div>
+        <div className="timeline-item" style={{right:"-47%"}}>
+        <div className="timeline-content">
+          <h4>Step 3</h4>
+          <p>Develop implementation strategies</p>
+        </div>
+      </div>
+        <div className="timeline-dot"></div>
+        <div className="timeline-item" style={{left:"-4%", marginTop:"80px"}}>
+        <div className="timeline-content">
+          <h4>Solution</h4>
+          <p>Present actionable recommendations</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</FadeInSection>
 
       {/* CTA Section */}
       <section className="cta">
