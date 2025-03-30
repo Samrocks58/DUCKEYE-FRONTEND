@@ -5,7 +5,7 @@ import './geocoder-styles.css';
 const JobSearch = () => {
   const [position, setPosition] = useState("");
   const [location, setLocation] = useState("");
-  const [locationData, setLocationData] = useState(null);
+  const [setLocationData] = useState(null);
   const autocompleteContainerRef = useRef(null);
   const autocompleteRef = useRef(null);
 
@@ -18,7 +18,7 @@ const JobSearch = () => {
     if (autocompleteContainerRef.current && !autocompleteRef.current) {
       autocompleteRef.current = new GeocoderAutocomplete(
         autocompleteContainerRef.current,
-        '',
+        '39743f32eb6c434caca3ca3937ff8516',
         { placeholder: 'Enter Location', 
           filterByType: ['city', 'state', 'county'],
         }
@@ -34,7 +34,6 @@ const JobSearch = () => {
         const formattedLocation = [cityState, state, country].filter(Boolean).join(', ');
         
         setLocation(formattedLocation);
-        setLocationData(locationResult);
         
         console.log("Selected location:", locationResult);
       }
