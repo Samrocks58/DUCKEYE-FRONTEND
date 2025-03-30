@@ -40,7 +40,7 @@ const Home = () => {
 <FadeInSection>
 <section className="process-container">
   <div className="process-box">
-    <h3>Our Process</h3>
+    <h3>Our Career Success Process</h3>
     <div className="vertical-timeline">
         <div className="timeline-dot"></div>
         <div className="timeline-item" style={{left:"-55%"}}>
@@ -84,6 +84,7 @@ const Home = () => {
       {/* CTA Section */}
       <section className="cta">
         <h2>Get Started Today!</h2>
+        <h4>Find your success. Click below!</h4>
         <button onClick = {() => {navigate("/start")}}>Get Started</button>
       </section>
 
