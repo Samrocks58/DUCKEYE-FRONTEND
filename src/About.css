@@ -1,0 +1,42 @@
+.about-page {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .mainAbout,
+  .our-mission,
+  .about-details {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .about-container,
+  .our-mission-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .our-mission-container h1,
+  .about-details h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+  }
+  
+  hr {
+    width: 50%;
+    margin: 20px auto;
+    border: 0;
+    border-top: 2px solid #eee;
+  }
+  
+  p {
+    line-height: 1.6;
+    margin: 10px 0;
+  }
