@@ -12,7 +12,7 @@ const Home = () => {
 
       {/* Hero Section */}
       <section className="hero">
-        <h2>We Will Show You Your Vision Through Our Eyes</h2>
+        <h2>Find Your Vision Through Our Eyes</h2>
         <p>Get insight into your future work-related questions, concerns, and more.</p>
       </section>
 
